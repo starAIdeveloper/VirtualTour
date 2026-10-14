@@ -186,12 +186,16 @@ export function removeScene(p, id) {
 export function analytics(events, scenes) {
   const visits = events.filter((e) => e.type === "visit"),
     clicks = events.filter((e) => e.type === "hotspot");
+  const ids = new Set(scenes.map((s) => s.id));
+  const explored = new Set(
+    visits.filter((e) => ids.has(e.scene)).map((e) => e.scene),
+  ).size;
   return {
     visits: visits.length,
     clicks: clicks.length,
-    unique: new Set(visits.map((e) => e.scene)).size,
+    unique: explored,
     completion: Math.round(
-      (new Set(visits.map((e) => e.scene)).size / scenes.length) * 100,
+      scenes.length ? (explored / scenes.length) * 100 : 0,
     ),
     counts: scenes.map((s) => ({
       id: s.id,

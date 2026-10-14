@@ -186,7 +186,7 @@ function metrics() {
   ]
     .map(
       ([icon, label, n, sub]) =>
-        `<div class="metric"><div class="metric-icon">${icon}</div><div><small>${label}</small><strong>${n}</strong><p>${sub}</p></div><svg viewBox="0 0 80 30"><path d="M1 26L8 16L17 21L25 10L35 17L45 5L53 12L65 2L77 9" fill="none" stroke="#05a9d9"/></svg></div>`,
+        `<div class="metric"><div class="metric-icon">${icon}</div><div><small>${label}</small><strong>${n}</strong><p>${sub}</p></div><svg viewBox="0 0 80 30" aria-hidden="true"><path d="M1 26L8 16L17 21L25 10L35 17L45 5L53 12L65 2L77 9" fill="none" stroke="#05a9d9"/></svg></div>`,
     )
     .join("")}</div>`;
 }
@@ -341,7 +341,7 @@ function modal(title, fields, submit) {
   d.showModal();
 }
 const field = (label, name, value = "", type = "text") =>
-  `<label class="field">${label}<input name="${name}" type="${type}" value="${esc(value)}" ${type === "text" ? 'maxlength="80"' : ""} required></label>`;
+  `<label class="field">${label}<input name="${name}" type="${type}" ${type === "number" ? 'step="0.1"' : ""} value="${esc(value)}" ${type === "text" ? 'maxlength="80"' : ""} required></label>`;
 function sceneDialog(edit = false) {
   const s = edit
     ? scene()
@@ -553,12 +553,23 @@ async function exportProject() {
     c.width = im.width;
     c.height = im.height;
     c.getContext("2d").drawImage(im, 0, 0);
-    assets[id] = c.toDataURL("image/jpeg", 0.85);
+    let quality = 0.85;
+    assets[id] = c.toDataURL("image/jpeg", quality);
+    while (assets[id].length > 5000000 && quality > 0.35) {
+      quality -= 0.1;
+      assets[id] = c.toDataURL("image/jpeg", quality);
+    }
+    if (assets[id].length > 5000000)
+      throw Error(
+        "Panorama is too large for a portable project. Use a smaller image.",
+      );
   }
-  download(
-    "virtualtour-project.json",
-    JSON.stringify({ project, panoramas: assets }, null, 2),
-  );
+  const content = JSON.stringify({ project, panoramas: assets }, null, 2);
+  if (new Blob([content]).size > 32000000)
+    throw Error(
+      "Project exceeds the 32 MB portable format limit. Remove or resize panorama assets.",
+    );
+  download("virtualtour-project.json", content);
 }
 const actions = {
   "open-tour": () => openScene(current),
