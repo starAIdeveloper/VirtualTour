@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "checks": [
+    "built WebGL room rendering",
+    "player turning/zoom",
+    "information hotspot",
+    "scene navigation",
+    "viewport PNG capture",
+    "scene creation",
+    "hotspot editing/placement",
+    "start scene persistence",
+    "map dragging",
+    "worker processing/feature matches",
+    "blend PNG export",
+    "CV diagnostics",
+    "local analytics CSV",
+    "built reference assets",
+    "project backup/restore/rejection",
+    "panorama upload",
+    "embedded panorama backup roundtrip",
+    "scene deletion",
+    "mobile layout"
+  ],
+  "pageErrors": []
+}
