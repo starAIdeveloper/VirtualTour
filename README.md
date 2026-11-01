@@ -2,8 +2,6 @@
 
 An interactive virtual tour workbench inspired by the five supplied desktop screenshots. Includes procedural museum/hotel environments, a real 360° panorama player, scene and hotspot editing, a navigation map, local image processing, and browser activity analytics.
 
-![Running VirtualTour dashboard](docs/screenshots/dashboard.webp)
-
 ## Run
 
 Requires Node.js 22+ and npm:
