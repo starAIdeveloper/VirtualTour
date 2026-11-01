@@ -2,6 +2,32 @@
 
 An interactive virtual tour workbench inspired by the five supplied desktop screenshots. Includes procedural museum/hotel environments, a real 360° panorama player, scene and hotspot editing, a navigation map, local image processing, and browser activity analytics.
 
+## Design reference gallery
+
+The five supplied interface designs are shown below. These are design references; screenshots of the running application appear in [Running application screenshots](#running-application-screenshots).
+
+### Computer vision processing
+
+![Computer vision processing design with keypoints, feature matches, alignment and blending diagnostics](docs/reference/screen-1.webp)
+
+### Tour dashboard
+
+![Virtual tour dashboard design with tour preview, navigation map and visitor overview](docs/reference/screen-2.webp)
+
+### Panorama stitching workspace
+
+![Panorama stitching design with source images, processing controls, hotspots and scene navigation](docs/reference/screen-3.webp)
+
+### Interactive virtual tour player
+
+![Virtual tour player design with interactive hotspots, scene information and floor-plan navigation](docs/reference/screen-4.webp)
+
+### Visitor analytics
+
+![Visitor analytics design with trends, dwell time, hotspot engagement and a floor-plan heatmap](docs/reference/screen-5.webp)
+
+The images are stored as WebP copies for repository size. OpenCV labels, photographic imagery, feature overlays and visitor totals in these designs are reference content, not outputs of this implementation.
+
 ## Run
 
 Requires Node.js 22+ and npm:
@@ -75,16 +101,6 @@ Screenshots below were captured from the implemented production build by the bro
 ### Mobile layout
 
 ![Responsive tour dashboard](docs/screenshots/mobile.webp)
-
-## Supplied reference images
-
-These are the user-provided design targets, converted to WebP for repository size. Their OpenCV labels, photographic imagery, feature overlays and visitor totals are reference content, not outputs of this implementation.
-
-![CV processing design reference](docs/reference/screen-1.webp)
-![Dashboard design reference](docs/reference/screen-2.webp)
-![Stitching design reference](docs/reference/screen-3.webp)
-![Player design reference](docs/reference/screen-4.webp)
-![Analytics design reference](docs/reference/screen-5.webp)
 
 ## Storage and project backups
 
