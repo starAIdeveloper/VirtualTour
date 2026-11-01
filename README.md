@@ -2,6 +2,8 @@
 
 An interactive virtual tour workbench inspired by the five supplied desktop screenshots. Includes procedural museum/hotel environments, a real 360° panorama player, scene and hotspot editing, a navigation map, local image processing, and browser activity analytics.
 
+![Virtual tour dashboard design with tour preview, navigation map and visitor overview](docs/reference/screen-2.webp)
+
 ## Design reference gallery
 
 The five supplied interface designs are shown below. These are design references; screenshots of the running application appear in [Running application screenshots](#running-application-screenshots).
@@ -9,10 +11,6 @@ The five supplied interface designs are shown below. These are design references
 ### Computer vision processing
 
 ![Computer vision processing design with keypoints, feature matches, alignment and blending diagnostics](docs/reference/screen-1.webp)
-
-### Tour dashboard
-
-![Virtual tour dashboard design with tour preview, navigation map and visitor overview](docs/reference/screen-2.webp)
 
 ### Panorama stitching workspace
 
