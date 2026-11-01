@@ -74,34 +74,6 @@ The translation result is a diagnostic and is **not** used to warp the panorama.
 
 A blended output can be assigned to a 360° scene only when its aspect ratio is near 2:1; the user must ensure it contains a complete equirectangular view. Flat panoramas should be exported and viewed as flat images.
 
-## Running application screenshots
-
-Screenshots below were captured from the implemented production build by the browser tests.
-
-### Immersive player
-
-![Interactive hotel suite player](docs/screenshots/player.webp)
-
-### Scene and hotspot editor
-
-![Tour scene and hotspot editing](docs/screenshots/editor.webp)
-
-### Navigation map
-
-![Editable scene navigation map](docs/screenshots/map.webp)
-
-### Stitching and diagnostics
-
-![Working image processing and feather blending](docs/screenshots/stitching.webp)
-
-### Local analytics
-
-![Recorded browser activity analytics](docs/screenshots/analytics.webp)
-
-### Mobile layout
-
-![Responsive tour dashboard](docs/screenshots/mobile.webp)
-
 ## Storage and project backups
 
 Scene metadata and up to 2,000 local activity events autosave in localStorage. Uploaded panoramas are session assets and are not automatically stored there. Export Project JSON embeds the current panoramas as JPEG data URLs, together with validated scene metadata. Import restores both scenes and panoramas. Backups exclude activity events, stitching inputs and blend results; use CSV to save activity.
